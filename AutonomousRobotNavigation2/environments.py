@@ -13,6 +13,7 @@ from AutonomousRobotNavigation2.agents import BaseAgent  #change----------------
 from AutonomousRobotNavigation2.agents import MovingAgent  #change---------------------------------------
 
 
+
 # Action Id
 ACCELERATE = 0
 TURN = 1
@@ -61,7 +62,7 @@ class BaseEnv(gym.Env):
             max_turn: float = np.pi/9,
             max_acceleration: float = 0.1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 400,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
@@ -171,6 +172,11 @@ class BaseEnv(gym.Env):
                     else:
                             self.pedestrian1.p1accelerate(0) #Constant speed 
                             self.pedestrian2.p2accelerate(0) #Constant speed 
+                  
+                
+                    
+            
+                    
             else:
                     acceleration = 0
                     self.agent.accelerate(acceleration)
@@ -186,9 +192,9 @@ class BaseEnv(gym.Env):
                
                     else:
                             self.pedestrian1.p1accelerate(0) #Constant speed 
-                            self.pedestrian2.p2accelerate(0) #Constant speed                 
-                  
-           
+                            self.pedestrian2.p2accelerate(0) #Constant speed 
+                    
+                    
         elif action.id == BREAK:
             self.agent.break_()
             if self.pedestrian1.p1y <= -1 or self.pedestrian1.p1y >= 1 or self.pedestrian1.p1x <= -1 or self.pedestrian1.p1x >= 1 : #q
@@ -594,7 +600,7 @@ class MovingEnv(BaseEnv):
             max_turn: float = np.pi/9,
             max_acceleration: float = 0.1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 400,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
