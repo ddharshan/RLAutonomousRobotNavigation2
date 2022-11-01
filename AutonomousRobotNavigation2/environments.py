@@ -157,7 +157,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian2.p2accelerate(0) #Constant speed 
                   
         elif action.id == ACCELERATE:
-            if self.agent.speed <= 1:  #acceleration is applied up to 2m/s (agent's maximum speed is 2m/s. Due to increment of max=0.1, the max.speed is 1.999~2m/s)
+            if self.agent.speed <= 1.99:  #acceleration is applied up to 2m/s (agent's maximum speed is 2m/s. Due to increment of max=0.1, the max.speed is 1.999~2m/s)
                     acceleration = self.max_acceleration * max(min(action.parameter, 1), 0) #Randomizing the acceleration - The maximum acceleration is by 0.1. However, 0.1*1=0.1 also can be achieved
                     self.agent.accelerate(acceleration)
                     if self.pedestrian1.p1y <= -1 or self.pedestrian1.p1y >= 1 or self.pedestrian1.p1x <= -1 or self.pedestrian1.p1x >= 1 : #q
