@@ -60,7 +60,7 @@ class BaseEnv(gym.Env):
             self,
             seed: Optional[int] = None,
             max_turn: float = np.pi/9,
-            max_acceleration: float = 1,
+            max_acceleration: float = 0.1,
             delta_t: float = 0.005,
             max_step: int = 400,
             penalty: float = 0.001,
@@ -157,7 +157,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian2.p2accelerate(0) #Constant speed 
                   
         elif action.id == ACCELERATE:
-            if self.agent.speed <= 1:  #acceleration is applied up to 2m/s (agent's maximum speed is 2m/s. Due to increment of max=0.1, the max.speed is 1.999~2m/s)
+            if self.agent.speed < 1.99:  #acceleration is applied up to 2m/s (agent's maximum speed is 2m/s. Due to increment of max=0.1, the max.speed is 1.999~2m/s)
                     acceleration = self.max_acceleration * max(min(action.parameter, 1), 0) #Randomizing the acceleration - The maximum acceleration is by 0.1. However, 0.1*1=0.1 also can be achieved
                     self.agent.accelerate(acceleration)
                     if self.pedestrian1.p1y <= -1 or self.pedestrian1.p1y >= 1 or self.pedestrian1.p1x <= -1 or self.pedestrian1.p1x >= 1 : #q
@@ -313,7 +313,7 @@ class BaseEnv(gym.Env):
         return state
 
     def get_reward(self, last_distance: float, goal: bool = False, collision: bool = False, norm: bool = False) -> float:
-        return last_distance - self.distance - self.penalty + (1 if goal else 0) - (0.03*(1 if collision else 0)) + (0.0000000005*(1 if norm else 0))
+        return last_distance - self.distance - self.penalty + (1 if goal else 0) - (0.01*(1 if collision else 0)) + (0.0000000005*(1 if norm else 0))
 
 #----------------------Define the distance-----------------
 
@@ -598,7 +598,7 @@ class MovingEnv(BaseEnv):
             self,
             seed: int = None,
             max_turn: float = np.pi/9,
-            max_acceleration: float = 1,
+            max_acceleration: float = 0.1,
             delta_t: float = 0.005,
             max_step: int = 400,
             penalty: float = 0.001,
