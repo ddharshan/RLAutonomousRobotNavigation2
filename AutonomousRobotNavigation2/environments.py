@@ -62,7 +62,7 @@ class BaseEnv(gym.Env):
             max_turn: float = np.pi/9,
             max_acceleration: float = 1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 200,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
@@ -263,7 +263,7 @@ class BaseEnv(gym.Env):
         return state
 
     def get_reward(self, last_distance: float, goal: bool = False, collision: bool = False, norm: bool = False) -> float:
-        return last_distance - self.distance - self.penalty + (5 if goal else 0) - (0*(1 if collision else 0)) + (0*(1 if norm else 0))
+        return last_distance - self.distance - self.penalty + (1 if goal else 0) - (0*(1 if collision else 0)) + (0*(1 if norm else 0))
 
 #----------------------Define the distance-----------------
 
@@ -453,7 +453,7 @@ class MovingEnv(BaseEnv):
             max_turn: float = np.pi/9,
             max_acceleration: float = 1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 200,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
