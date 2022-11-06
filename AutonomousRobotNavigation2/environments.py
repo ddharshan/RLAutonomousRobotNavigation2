@@ -62,7 +62,7 @@ class BaseEnv(gym.Env):
             max_turn: float = np.pi/9,
             max_acceleration: float = 1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 400,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
@@ -453,7 +453,7 @@ class MovingEnv(BaseEnv):
             max_turn: float = np.pi/9,
             max_acceleration: float = 1,
             delta_t: float = 0.005,
-            max_step: int = 500,
+            max_step: int = 400,
             penalty: float = 0.001,
             break_value: float = 0.1,
     ):
