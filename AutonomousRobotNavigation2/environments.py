@@ -114,21 +114,21 @@ class BaseEnv(gym.Env):
 
         #self.target = Target(0.9,-0.85,self.target_radius) #position of the goal
         
-        #self.agent.reset(-0.7, 0.6, np.pi, 0, 1, 1.5*(np.pi))  #Initiallizing the robot
+        self.agent.reset(-0.7, 0.6, np.pi, 0, 1, 1.5*(np.pi))  #Initiallizing the robot
         
         #Randomizing the initial position of pedestrian1 which will ensure the dynmaic environment(Rather than fixing the starting position of pedestrian, randomizing will be more effective. Because the dynamic is high)   
-        low = [-self.field_size, -self.field_size, 0]#,-self.field_size, -self.field_size, 0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
-        high = [self.field_size, self.field_size, 2 * np.pi]#, self.field_size, self.field_size, 2 * np.pi]  
+        #low = [-self.field_size, -self.field_size, 0]#,-self.field_size, -self.field_size, 0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
+        #high = [self.field_size, self.field_size, 2 * np.pi]#, self.field_size, self.field_size, 2 * np.pi]  
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
-        self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
+       #self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
         self.pedestrian1.reset(0, 1, 1.5*(np.pi),-0.7, 0.6, np.pi) #randomizing the starting of pedestrian 1
         
-        lower = [-1, -1, self.target_radius]
-        higher = [1, 1, self.target_radius]
-        self.target = Target(*self.np_random.uniform(lower, higher)) #position of the goal
-        
-      
+ 
+        limit = self.field_size-self.target_radius
+        lower = [-limit, -limit, self.target_radius]
+        higher = [limit, limit, self.target_radius]
+        self.target = Target(*self.np_random.uniform(lower, higher))
     
         #Initial acceleration which means, the constant velocity due to the absense of the increament in def step()
         self.pedestrian1.p1accelerate(1.2) #Constant speed or initial speed
