@@ -122,7 +122,7 @@ class BaseEnv(gym.Env):
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
         self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,-1, 0, 0) #randomizing the starting of pedestrian 1
+        self.pedestrian1.reset(0,0,0,-0.5, 1, 1.5*(np.pi)) #randomizing the starting of pedestrian 1
         
  
         limit = self.field_size-self.target_radius
@@ -131,7 +131,7 @@ class BaseEnv(gym.Env):
         self.target = Target(*self.np_random.uniform(lower, higher))
     
         #Initial acceleration which means, the constant velocity due to the absense of the increament in def step()
-        self.pedestrian1.p1accelerate(1.2) #Constant speed or initial speed
+        self.pedestrian1.p1accelerate(0.8) #Constant speed or initial speed
        
         
       
