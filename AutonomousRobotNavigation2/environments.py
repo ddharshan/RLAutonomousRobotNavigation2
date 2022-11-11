@@ -193,7 +193,7 @@ class BaseEnv(gym.Env):
 
 
         if self.distance < self.target_radius and self.agent.speed == 0: #Robot reached the goal
-            reward = self.get_reward(last_distance, True, False, False)
+            reward = self.get_reward(last_distance, True, False)
             done = True
         
         elif abs(self.agent.x) > self.field_size or abs(self.agent.y) > self.field_size or self.current_step > self.max_step: #Robot moving out of env and max.steps
