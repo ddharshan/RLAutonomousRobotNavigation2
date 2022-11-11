@@ -207,15 +207,15 @@ class BaseEnv(gym.Env):
         elif (self.distance > 0.4) and (0.22 < self.collision1 < 0.35): #social-norm inducing reward for P1        
             
             if ((0.75*(np.pi)) < abs(self.thetaP1n - self.thetaRn) < np.pi):  #Passing of P1
-                reward = self.get_reward(last_distance, False, False, True)
+                reward = self.get_reward(last_distance, False, True)
                 done = False
             
             elif (((np.pi/4) < (self.thetaP1n - self.thetaRn) < 0.75*(np.pi)) and (abs(self.pedestrian1.p1speed) - abs(self.agent.speed) > 0)):  #Crossing of P1
-                reward = self.get_reward(last_distance, False, False, True)
+                reward = self.get_reward(last_distance, False, True)
                 done = False
             
             elif ((0 < (self.thetaRn - self.thetaP1n) < (np.pi/4)) and (abs(self.agent.speed) > abs(self.pedestrian1.p1speed))): #overtaking of P1
-                reward = self.get_reward(last_distance, False, False, True)
+                reward = self.get_reward(last_distance, False, True)
                 done = False
             
             else:
