@@ -201,7 +201,7 @@ class BaseEnv(gym.Env):
             done = True
             
         elif self.collision1 <= 0.22:  #Collision
-            reward = -1 #changed
+            reward = -1.5 #changed
             done = True #changed
             
         elif (self.distance > 0.4) and (0.22 < self.collision1 < 0.35): #social-norm inducing reward for P1        
