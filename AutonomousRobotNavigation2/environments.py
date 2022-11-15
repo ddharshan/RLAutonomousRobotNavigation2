@@ -263,7 +263,7 @@ class BaseEnv(gym.Env):
         return state
 
     def get_reward(self, last_distance: float, goal: bool = False, norm: bool = False) -> float: #changed
-        return last_distance - self.distance - self.penalty + (1 if goal else 0)  + (0*(1 if norm else 0))  #changed
+        return last_distance - self.distance - self.penalty + (1 if goal else 0)  + (0.01*(1 if norm else 0))  #changed
 
 #----------------------Define the distance-----------------
 
