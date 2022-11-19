@@ -227,14 +227,10 @@ class BaseEnv(gym.Env):
             reward = -1
             done = True
             
-        elif self.collision1 <= 0.22:  #Collision
+        elif self.collision1 <= 0.22 or self.collision2 <= 0.22:  #Collision
             reward = -1.6 #changed
             done = True #changed
-            
-        elif self.collision2 <= 0.22:  #Collision
-            reward = -1.6 #changed
-            done = True #changed
-            
+               
         elif (self.distance > 0.4) and (0.22 < self.collision1 < 0.35): #social-norm inducing reward for P1        
             
             if ((0.75*(np.pi)) < abs(self.thetaP1n - self.thetaRn) < np.pi):  #Passing of P1
