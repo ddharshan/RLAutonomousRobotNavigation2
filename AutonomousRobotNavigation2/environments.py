@@ -123,8 +123,8 @@ class BaseEnv(gym.Env):
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
         self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,-1, 0, 0, 0, -1, (np.pi/2)) #randomizing the starting of pedestrian 1
-        self.pedestrian2.reset(0,0,0,-1, 0, 0, 0, -1, (np.pi/2)) #randomizing the starting of pedestrian 2
+        self.pedestrian1.reset(0,0,0,-1, 0.5, 0, -1, -0.5, 0) #randomizing the starting of pedestrian 1
+        self.pedestrian2.reset(0,0,0,-1, 0.5, 0, -1, -0.5, 0) #randomizing the starting of pedestrian 2
         
  
         limit = self.field_size-self.target_radius
@@ -227,7 +227,7 @@ class BaseEnv(gym.Env):
             reward = -1
             done = True
             
-        elif self.collision2 <= 0.22 or self.collision1 <= 0.22:  #Collision
+        elif self.collision1 <= 0.22 or self.collision2 <= 0.22:  #Collision
             reward = -1.6 #changed
             done = True #changed
                
