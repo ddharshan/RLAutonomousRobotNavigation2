@@ -123,8 +123,8 @@ class BaseEnv(gym.Env):
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
         #self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,0,-0.04,0,-0.9, -0.5, 0) #randomizing the starting of pedestrian 1
-        self.pedestrian2.reset(0,0,0,0,-0.04,0,-0.9, -0.5, 0) #randomizing the starting of pedestrian 2
+        self.pedestrian1.reset(0,0,0,0,-0.23,np.pi/2,-0.9, -0.5, 0) #randomizing the starting of pedestrian 1
+        self.pedestrian2.reset(0,0,0,0,-0.23,np.pi/2,-0.9, -0.5, 0) #randomizing the starting of pedestrian 2
         
  
         #limit = self.field_size-self.target_radius
