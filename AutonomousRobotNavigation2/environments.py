@@ -432,7 +432,7 @@ class BaseEnv(gym.Env):
             
             
             #P1Shoulder - right 
-            p1rshoulder = rendering.make_capsule(16.74,33.075) # (rectangle length, arc diameter)
+            p1rshoulder = rendering.make_capsule(8.432,16.66) # (rectangle length, arc diameter)
             self.p1rshoulder_trans = rendering.Transform(rotation=((self.pedestrian1.p1theta)+(np.pi/2)))  # noqa
             p1rshoulder.add_attr(self.p1rshoulder_trans)
             p1rshoulder.add_attr(self.pedestrian1_trans)
@@ -440,7 +440,7 @@ class BaseEnv(gym.Env):
             self.viewer.add_geom(p1rshoulder)
             
             #P1Shoulder - left 
-            p1lshoulder = rendering.make_capsule(-16.74,33.075) # (rectangle length, arc diameter)
+            p1lshoulder = rendering.make_capsule(-8.432,16.66) # (rectangle length, arc diameter)
             self.p1lshoulder_trans = rendering.Transform(rotation=((self.pedestrian1.p1theta)+(np.pi/2))) # noqa
             p1lshoulder.add_attr(self.p1lshoulder_trans)
             p1lshoulder.add_attr(self.pedestrian1_trans)
@@ -519,7 +519,7 @@ class BaseEnv(gym.Env):
             
             
             #P2Shoulder - right 
-            p2rshoulder = rendering.make_capsule(16.74,33.075) # (rectangle length, arc diameter)
+            p2rshoulder = rendering.make_capsule(8.432,16.66) # (rectangle length, arc diameter)
             self.p2rshoulder_trans = rendering.Transform(rotation=((self.pedestrian2.p2theta)+(np.pi/2)))  # noqa
             p2rshoulder.add_attr(self.p2rshoulder_trans)
             p2rshoulder.add_attr(self.pedestrian2_trans)
@@ -527,7 +527,7 @@ class BaseEnv(gym.Env):
             self.viewer.add_geom(p2rshoulder)
             
             #P2Shoulder - left 
-            p2lshoulder = rendering.make_capsule(-16.74,33.075) # (rectangle length, arc diameter)
+            p2lshoulder = rendering.make_capsule(-8.432,16.66) # (rectangle length, arc diameter)
             self.p2lshoulder_trans = rendering.Transform(rotation=((self.pedestrian2.p2theta)+(np.pi/2))) # noqa
             p2lshoulder.add_attr(self.p2lshoulder_trans)
             p2lshoulder.add_attr(self.pedestrian2_trans)
