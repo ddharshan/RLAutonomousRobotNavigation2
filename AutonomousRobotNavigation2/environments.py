@@ -133,8 +133,8 @@ class BaseEnv(gym.Env):
         self.target = Target(*self.np_random.uniform(lower, higher))
     
         #Initial acceleration which means, the constant velocity due to the absense of the increament in def step()
-        self.pedestrian1.p1accelerate(0) #Constant speed or initial speed
-        self.pedestrian2.p2accelerate(0) #Constant speed or initial speed
+        self.pedestrian1.p1accelerate(1.2) #Constant speed or initial speed
+        self.pedestrian2.p2accelerate(1.2) #Constant speed or initial speed
        
         
       
