@@ -401,7 +401,7 @@ class BaseEnv(gym.Env):
 
 
     def render(self, mode='human'):
-        screen_width = 1350
+        screen_width = 680
         screen_height = 680
         unit_x = screen_width / 2
         unit_y = screen_height / 2
