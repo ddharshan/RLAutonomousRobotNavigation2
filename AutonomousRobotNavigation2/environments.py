@@ -454,7 +454,7 @@ class BaseEnv(gym.Env):
             
             
             #P1arrow - 1
-            a, b, c = 0.1705 * unit_x, 0.07147 * unit_y, 0.108146 * unit_x
+            a, b, c = 0.1705 * unit_x, 0.036 * unit_y, 0.108146 * unit_x
             p1arrow = rendering.FilledPolygon([(a, 0), (c, b), (c, -b)])
             self.p1arrow_trans = rendering.Transform(rotation=self.pedestrian1.p1theta)  # noqa 
             p1arrow.add_attr(self.p1arrow_trans)
@@ -541,7 +541,7 @@ class BaseEnv(gym.Env):
             
             
             #P2arrow - 1
-            a2, b2, c2 = 0.1705 * unit_x, 0.07147 * unit_y, 0.108146 * unit_x
+            a2, b2, c2 = 0.1705 * unit_x, 0.036 * unit_y, 0.108146 * unit_x
             p2arrow = rendering.FilledPolygon([(a2, 0), (c2, b2), (c2, -b2)])
             self.p2arrow_trans = rendering.Transform(rotation=self.pedestrian2.p2theta)  # noqa 
             p2arrow.add_attr(self.p2arrow_trans)
