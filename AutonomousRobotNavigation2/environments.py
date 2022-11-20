@@ -496,7 +496,7 @@ class BaseEnv(gym.Env):
             self.viewer.add_geom(agentinner)
             
             #Robot's arrow
-            t, r, m = 0.0207 * unit_x, 0.047 * unit_y, 0.0101 * unit_x
+            t, r, m = 0.04* unit_x, 0.047 * unit_y, 0.0101 * unit_x
             arrow = rendering.FilledPolygon([(t, 0), (m, r), (m, -r)])
             self.arrow_trans = rendering.Transform(rotation=self.agent.theta)  # noqa
             arrow.add_attr(self.arrow_trans)
