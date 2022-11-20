@@ -401,8 +401,8 @@ class BaseEnv(gym.Env):
 
 
     def render(self, mode='human'):
-        screen_width = 680
-        screen_height = 680
+        screen_width = 700
+        screen_height = 700
         unit_x = screen_width / 2
         unit_y = screen_height / 2
         agent_inner_radius = 0.03 
