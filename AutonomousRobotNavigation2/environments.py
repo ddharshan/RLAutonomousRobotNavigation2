@@ -113,24 +113,24 @@ class BaseEnv(gym.Env):
     def reset(self) -> list:
         self.current_step = 0
 
-        self.target = Target(0.9,-0.85,self.target_radius) #position of the goal
+        #self.target = Target(0.9,-0.85,self.target_radius) #position of the goal
         
-        self.agent.reset(0,0,0,-0.9,0.5, 0,-0.9, -0.5, 0)  #Initiallizing the robot
+        #self.agent.reset(0,0,0,-0.9,0.5, 0,-0.9, -0.5, 0)  #Initiallizing the robot
         
         #Randomizing the initial position of pedestrian1 which will ensure the dynmaic environment(Rather than fixing the starting position of pedestrian, randomizing will be more effective. Because the dynamic is high)   
-        #low = [-self.field_size, -self.field_size, 0,-self.field_size, -self.field_size, 0, -self.field_size, -self.field_size, 0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
-        #high = [self.field_size, self.field_size, 2 * np.pi, self.field_size, self.field_size, 2 * np.pi, self.field_size, self.field_size, 2 * np.pi]  
+        low = [-self.field_size, -self.field_size, 0,-self.field_size, -self.field_size, 0, -self.field_size, -self.field_size, 0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
+        high = [self.field_size, self.field_size, 2 * np.pi, self.field_size, self.field_size, 2 * np.pi, self.field_size, self.field_size, 2 * np.pi]  
         
-        #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
-        #self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,0,-0.21,np.pi/2,-0.9, -0.5, 0) #randomizing the starting of pedestrian 1
-        self.pedestrian2.reset(0,0,0,0,-0.21,np.pi/2,-0.9, -0.5, 0) #randomizing the starting of pedestrian 2
+        self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
+        self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
+        self.pedestrian1.reset(0,0,0,-1,0.5,0,-1, -0.5, 0) #randomizing the starting of pedestrian 1
+        self.pedestrian2.reset(0,0,0,-1,0.5,0,-1, -0.5, 0) #randomizing the starting of pedestrian 2
         
  
-        #limit = self.field_size-self.target_radius
-        #lower = [-limit, -limit, self.target_radius]
-        #higher = [limit, limit, self.target_radius]
-        #self.target = Target(*self.np_random.uniform(lower, higher))
+        limit = self.field_size-self.target_radius
+        lower = [-limit, -limit, self.target_radius]
+        higher = [limit, limit, self.target_radius]
+        self.target = Target(*self.np_random.uniform(lower, higher))
     
         #Initial acceleration which means, the constant velocity due to the absense of the increament in def step()
         self.pedestrian1.p1accelerate(0) #Constant speed or initial speed
@@ -149,7 +149,7 @@ class BaseEnv(gym.Env):
 
         if action.id == TURN:
             rotation = self.max_turn * max(min(action.parameter, 1), -1)
-            self.agent.turn(0)#(rotation)
+            self.agent.turn(rotation)
             if self.pedestrian1.p1y <= -1 or self.pedestrian1.p1y >= 1 or self.pedestrian1.p1x <= -1 or self.pedestrian1.p1x >= 1 : #q
                     self.pedestrian1.p1turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian1.p1accelerate(0) #Constant speed 
@@ -166,7 +166,7 @@ class BaseEnv(gym.Env):
         elif action.id == ACCELERATE:
             if self.agent.speed <= 1:  #acceleration is applied up to 2m/s (agent's maximum speed is 2m/s. Due to increment of max=0.1, the max.speed is 1.999~2m/s)
                     acceleration = self.max_acceleration * max(min(action.parameter, 1), 0) #Randomizing the acceleration - The maximum acceleration is by 0.1. However, 0.1*1=0.1 also can be achieved
-                    self.agent.accelerate(0)#(acceleration)
+                    self.agent.accelerate(acceleration)
                     if self.pedestrian1.p1y <= -1 or self.pedestrian1.p1y >= 1 or self.pedestrian1.p1x <= -1 or self.pedestrian1.p1x >= 1 : #q
                             self.pedestrian1.p1turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian1.p1accelerate(0) #Constant speed 
@@ -227,11 +227,11 @@ class BaseEnv(gym.Env):
             reward = -1
             done = True
             
-        elif self.collision1 <= 0.22 or self.collision2 <= 0.22:  #Collision
+        elif self.collision1 <= 0.21 or self.collision2 <= 0.21:  #Collision
             reward = -1.6 #changed
             done = True #changed
                
-        elif (self.distance > 0.4) and (0.22 < self.collision1 < 0.35): #social-norm inducing reward for P1        
+        elif (self.distance > 0.4) and (0.21 < self.collision1 < 0.35): #social-norm inducing reward for P1        
             
             if ((0.75*(np.pi)) < abs(self.thetaP1n - self.thetaRn) < np.pi):  #Passing of P1
                 reward = self.get_reward(last_distance, False, True)
@@ -250,7 +250,7 @@ class BaseEnv(gym.Env):
                 done = False
                 
                 
-        elif (self.distance > 0.4) and (0.22 < self.collision2 < 0.35): #social-norm inducing reward for P1        
+        elif (self.distance > 0.4) and (0.21 < self.collision2 < 0.35): #social-norm inducing reward for P1        
             
             if ((0.75*(np.pi)) < abs(self.thetaP2n - self.thetaRn) < np.pi):  #Passing of P1
                 reward = self.get_reward(last_distance, False, True)
