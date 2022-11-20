@@ -123,8 +123,8 @@ class BaseEnv(gym.Env):
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
         self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,-1, 0.5, 0, -1, -0.5, 0) #randomizing the starting of pedestrian 1
-        self.pedestrian2.reset(0,0,0,-1, 0.5, 0, -1, -0.5, 0) #randomizing the starting of pedestrian 2
+        self.pedestrian1.reset(0,0,0,-0.5, -1, np.pi/2, 0.5, -1, np.pi/2) #randomizing the starting of pedestrian 1
+        self.pedestrian2.reset(0,0,0,-0.5, -1, np.pi/2, 0.5, -1, np.pi/2) #randomizing the starting of pedestrian 2
         
  
         limit = self.field_size-self.target_radius
@@ -338,8 +338,8 @@ class BaseEnv(gym.Env):
     
     
     @staticmethod
-    def get_collision1(x1: float, y1: float, x3: float, y3: float) -> float:   #Define the collision
-        return np.sqrt(((x1 - x3) ** 2) + ((y1 - y3) ** 2))
+    def get_collision1(x3: float, y3: float, x4: float, y4: float) -> float:   #Define the collision
+        return np.sqrt(((x3 - x4) ** 2) + ((y3 - y4) ** 2))
 
     
 #-------------------Define the thetaRn for norm to wrapp [-pi, pi]----------------------
@@ -377,12 +377,12 @@ class BaseEnv(gym.Env):
         return self.get_thetaP2n(self.pedestrian2.p2theta)
     
     @staticmethod
-    def get_thetaP2n(x8: float) -> float:   #Define the thetaP1n
-        if x8 > np.pi:
-            x8 = -(2*(np.pi)) + x8
+    def get_thetaP2n(x7: float) -> float:   #Define the thetaP1n
+        if x7 > np.pi:
+            x7 = -(2*(np.pi)) + x7
         else:
-            x8
-        return x8
+            x7
+        return x7
 
 #----------------------Define the collision2---------------------
     @property
@@ -391,8 +391,8 @@ class BaseEnv(gym.Env):
     
     
     @staticmethod
-    def get_collision2(x1: float, y1: float, x7: float, y7: float) -> float:   #Define the collision
-        return np.sqrt(((x1 - x7) ** 2) + ((y1 - y7) ** 2))
+    def get_collision2(x8: float, y8: float, x9: float, y9: float) -> float:   #Define the collision
+        return np.sqrt(((x8 - x9) ** 2) + ((y8 - y9) ** 2))
 
 #------------------------------------------------------------------
 
