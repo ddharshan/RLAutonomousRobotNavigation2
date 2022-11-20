@@ -401,8 +401,8 @@ class BaseEnv(gym.Env):
 
 
     def render(self, mode='human'):
-        screen_width = 700
-        screen_height = 700
+        screen_width = 680
+        screen_height = 680
         unit_x = screen_width / 2
         unit_y = screen_height / 2
         agent_inner_radius = 0.03 
@@ -423,40 +423,7 @@ class BaseEnv(gym.Env):
             self.viewer.add_geom(target)
 
 
-
-		
-            
-            
-            #Robot inner radius -1
-            agentinner = rendering.make_circle(unit_x * agent_inner_radius)
-            self.agentinner_trans = rendering.Transform(translation=(unit_x * (1 + self.agent.x), unit_y * (1 + self.agent.y)))  # noqa
-            agentinner.add_attr(self.agentinner_trans)
-            
-            
-            #Robot outer radius
-            agentouter = rendering.make_circle(unit_x * agent_outer_radius)
-            self.agentouter_trans = rendering.Transform(translation=(unit_x * (1 + self.agent.x), unit_y * (1 + self.agent.y)))  # noqa
-            agentouter.add_attr(self.agentouter_trans)
-            agentouter.set_color(1, 0.5, 0)
-            self.viewer.add_geom(agentouter)
-            
-            #Robot inner radius- 2
-            agentinner.set_color(0, 0, 0)
-            self.viewer.add_geom(agentinner)
-            
-            #Robot's arrow
-            t, r, m = 0.041 * unit_x, 0.047 * unit_y, 0.02 * unit_x
-            arrow = rendering.FilledPolygon([(t, 0), (m, r), (m, -r)])
-            self.arrow_trans = rendering.Transform(rotation=self.agent.theta)  # noqa
-            arrow.add_attr(self.arrow_trans)
-            arrow.add_attr(self.agentinner_trans)
-            arrow.set_color(0, 0, 0)
-            self.viewer.add_geom(arrow)
-
-            
-            
-           
-            #pedestrian 1
+  	    #pedestrian 1
             
             #Head 1
             pedestrian1 = rendering.make_circle(unit_x * pedestrian1_radius)
@@ -508,6 +475,39 @@ class BaseEnv(gym.Env):
             #P1arrow - 2
             p1arrow.set_color(0, 0, 0)
             self.viewer.add_geom(p1arrow)
+		
+            
+            
+            #Robot inner radius -1
+            agentinner = rendering.make_circle(unit_x * agent_inner_radius)
+            self.agentinner_trans = rendering.Transform(translation=(unit_x * (1 + self.agent.x), unit_y * (1 + self.agent.y)))  # noqa
+            agentinner.add_attr(self.agentinner_trans)
+            
+            
+            #Robot outer radius
+            agentouter = rendering.make_circle(unit_x * agent_outer_radius)
+            self.agentouter_trans = rendering.Transform(translation=(unit_x * (1 + self.agent.x), unit_y * (1 + self.agent.y)))  # noqa
+            agentouter.add_attr(self.agentouter_trans)
+            agentouter.set_color(1, 0.5, 0)
+            self.viewer.add_geom(agentouter)
+            
+            #Robot inner radius- 2
+            agentinner.set_color(0, 0, 0)
+            self.viewer.add_geom(agentinner)
+            
+            #Robot's arrow
+            t, r, m = 0.041 * unit_x, 0.047 * unit_y, 0.02 * unit_x
+            arrow = rendering.FilledPolygon([(t, 0), (m, r), (m, -r)])
+            self.arrow_trans = rendering.Transform(rotation=self.agent.theta)  # noqa
+            arrow.add_attr(self.arrow_trans)
+            arrow.add_attr(self.agentinner_trans)
+            arrow.set_color(0, 0, 0)
+            self.viewer.add_geom(arrow)
+
+            
+            
+           
+          
             
             
             #pedestrian 2
