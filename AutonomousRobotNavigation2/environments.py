@@ -548,8 +548,9 @@ class BaseEnv(gym.Env):
             p2arrow.add_attr(self.pedestrian2_trans)
             
             
+	
             #P2Stride 
-            x2, y2, u2 = 0.0245 * unit_x, 0.071470588 * unit_y, 0.1705 * unit_x
+            x2, y2, u2 = 0.0245 * unit_x, 0.036 * unit_y, 0.1705 * unit_x
             p2stride = rendering.FilledPolygon([(x2, y2), (x2, -y2), (u2, -y2), (u2, y2)])
             self.p2stride_trans = rendering.Transform(rotation=self.pedestrian2.p2theta)  # noqa 
             p2stride.add_attr(self.p2stride_trans)
