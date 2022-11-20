@@ -406,7 +406,7 @@ class BaseEnv(gym.Env):
         unit_y = screen_height / 2
         agent_inner_radius = 0.03 
         agent_outer_radius = 0.04
-        pedestrian1_radius = 0.1 #0.0175
+        pedestrian1_radius = 0.0175
         pedestrian2_radius = 0.0175
 
 
