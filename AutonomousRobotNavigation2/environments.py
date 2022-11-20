@@ -464,7 +464,7 @@ class BaseEnv(gym.Env):
             
             
             #P1Stride 
-            x, y, u = 0.0245 * unit_x, 0.071470588 * unit_y, 0.1705 * unit_x
+            x, y, u = 0.0245 * unit_x, 0.036 * unit_y, 0.1705 * unit_x
             p1stride = rendering.FilledPolygon([(x, y), (x, -y), (u, -y), (u, y)])
             self.p1stride_trans = rendering.Transform(rotation=self.pedestrian1.p1theta)  # noqa 
             p1stride.add_attr(self.p1stride_trans)
