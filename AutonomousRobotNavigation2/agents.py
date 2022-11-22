@@ -74,8 +74,6 @@ class MovingAgent(BaseAgent):
         self.p1speed += value
         self._step()
 
-    
-
     def p1turn(self, value: float) -> None:
         self.p1theta = (self.p1theta + value) % (2 * np.pi)
         self._step()
