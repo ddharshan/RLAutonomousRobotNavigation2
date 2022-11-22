@@ -427,8 +427,8 @@ class BaseEnv(gym.Env):
             self.thetaRn, 
             self.agent.theta, #ask sir
             self.pedestrian1.p1theta, #ask sir
-            self.pedestrian2.p2theta #ask sir
-            self.pedestrian3.p3theta #ask sir
+            self.pedestrian2.p2theta, #ask sir
+            self.pedestrian3.p3theta, #ask sir
             self.pedestrian4.p4theta #ask sir
          
         ]
