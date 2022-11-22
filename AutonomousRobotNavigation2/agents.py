@@ -66,13 +66,13 @@ class BaseAgent:
     def p3turn(self, value: float) -> None:
         raise NotImplementedError
         
+        
 #pedestrian 4
     def p4accelerate(self, value: float) -> None:
         raise NotImplementedError
 
     def p4turn(self, value: float) -> None:
         raise NotImplementedError
-
 
     def reset(self, x: float, y: float, direction: float, p1x: float, p1y: float, p1direction: float, p2x: float, p2y: float, p2direction: float, p3x: float, p3y: float, p3direction: float, p4x: float, p4y: float, p4direction: float) -> None:
         self.x = x
@@ -127,8 +127,6 @@ class BaseAgent:
 
 
 
-
-
 class MovingAgent(BaseAgent):
     def __init__(self, break_value: float, delta_t: float):
         super(MovingAgent, self).__init__(break_value, delta_t)
@@ -176,6 +174,7 @@ class MovingAgent(BaseAgent):
         self.p3theta = (self.p3theta + value) % (2 * np.pi)
         self._step()
         
+        
 #Pedestrian 4
 
     def p4accelerate(self, value: float) -> None:
@@ -187,5 +186,5 @@ class MovingAgent(BaseAgent):
         self._step()
  
 
-
+ 
 
