@@ -309,7 +309,7 @@ class BaseEnv(gym.Env):
             reward = -1
             done = True
             
-        elif self.collision1 <= 0.21 or self.collision2 <= 0.21 or self.collision3 <= 0.21 or self.collision4 <= 0.21:  #Collision
+        elif self.collision1 <= 0.21 or self.collision2 <= 0.21 or self.collision3 <= 0.21 or self.collision4 <= 0.21 or self.collision5 <= 0.21:  #Collision
             reward = -1 #changed
             done = True #changed
                
