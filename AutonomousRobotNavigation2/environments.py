@@ -99,7 +99,7 @@ class BaseEnv(gym.Env):
         self.pedestrian2 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian3 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian4 = BaseAgent(break_value=break_value, delta_t=delta_t)
-	self.pedestrian5 = BaseAgent(break_value=break_value, delta_t=delta_t)
+        self.pedestrian5 = BaseAgent(break_value=break_value, delta_t=delta_t)
 
 
 
@@ -131,6 +131,7 @@ class BaseEnv(gym.Env):
         self.pedestrian2.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))    #randomizing the starting of pedestrian 2
         self.pedestrian3.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi)) 
         self.pedestrian4.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
+	self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
         
  
         limit = self.field_size-self.target_radius
