@@ -131,7 +131,7 @@ class BaseEnv(gym.Env):
         self.pedestrian2.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))    #randomizing the starting of pedestrian 2
         self.pedestrian3.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi)) 
         self.pedestrian4.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
-	self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
+        self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
         
  
         limit = self.field_size-self.target_radius
@@ -144,7 +144,7 @@ class BaseEnv(gym.Env):
         self.pedestrian2.p2accelerate(1.2) #Constant speed or initial speed
         self.pedestrian3.p3accelerate(1.2) #Constant speed or initial speed
         self.pedestrian4.p4accelerate(1.2) #Constant speed or initial speed
-	self.pedestrian5.p5accelerate(1.2) #Constant speed or initial speed
+        self.pedestrian5.p5accelerate(1.2) #Constant speed or initial speed
       
        
         
