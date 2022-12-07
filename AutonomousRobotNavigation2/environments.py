@@ -1106,7 +1106,7 @@ class MovingEnv(BaseEnv):
             delta_t=delta_t,
         )
 	
-	 self.pedestrian5 = MovingAgent(
+	self.pedestrian5 = MovingAgent(
             break_value=break_value,
             delta_t=delta_t,
         )
