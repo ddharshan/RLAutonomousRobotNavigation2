@@ -482,8 +482,8 @@ class BaseEnv(gym.Env):
             self.pedestrian1.p1theta, #ask sir
             self.pedestrian2.p2theta, #ask sir
             self.pedestrian3.p3theta, #ask sir
-            self.pedestrian4.p4theta #ask sir
-	    self.pedestrian5.p5theta #ask sir
+            self.pedestrian4.p4theta, #ask sir
+            self.pedestrian5.p5theta #ask sir
          
         ]
         return state
