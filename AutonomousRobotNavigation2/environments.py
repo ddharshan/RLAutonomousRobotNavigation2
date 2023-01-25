@@ -183,8 +183,8 @@ class BaseEnv(gym.Env):
             elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                     self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian5.p5accelerate(0) #Constant speed
-			
-	    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+            
+            elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
                     self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian6.p6accelerate(0) #Constant speed
                    
@@ -194,7 +194,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian3.p3accelerate(0) #Constant speed
                     self.pedestrian4.p4accelerate(0) #Constant speed
                     self.pedestrian5.p5accelerate(0) #Constant speed
-	            self.pedestrian6.p6accelerate(0) #Constant speed
+                    self.pedestrian6.p6accelerate(0) #Constant speed
                    
                    
                   
@@ -225,7 +225,7 @@ class BaseEnv(gym.Env):
                             self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian5.p5accelerate(0) #Constant speed
 			
-		    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+                    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
                             self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian6.p6accelerate(0) #Constant speed
                
@@ -235,7 +235,7 @@ class BaseEnv(gym.Env):
                             self.pedestrian3.p3accelerate(0) #Constant speed 
                             self.pedestrian4.p4accelerate(0) #Constant speed
                             self.pedestrian5.p5accelerate(0) #Constant speed
-			    self.pedestrian6.p6accelerate(0) #Constant speed
+                            self.pedestrian6.p6accelerate(0) #Constant speed
                    
                         
             else:
@@ -265,8 +265,8 @@ class BaseEnv(gym.Env):
                     elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                             self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian5.p5accelerate(0) #Constant speed
-			
-		    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+		 	
+                    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
                             self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian6.p6accelerate(0) #Constant speed
                
@@ -277,7 +277,7 @@ class BaseEnv(gym.Env):
                             self.pedestrian3.p3accelerate(0) #Constant speed
                             self.pedestrian4.p4accelerate(0) #Constant speed
                             self.pedestrian5.p5accelerate(0) #Constant speed
-			    self.pedestrian6.p6accelerate(0) #Constant speed
+                            self.pedestrian6.p6accelerate(0) #Constant speed
                            
                            
                     
@@ -306,7 +306,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian5.p5accelerate(0) #Constant speed
 			
 			
-	    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+            elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
                     self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian6.p6accelerate(0) #Constant speed
                
@@ -316,7 +316,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian3.p3accelerate(0) #Constant speed
                     self.pedestrian4.p4accelerate(0) #Constant speed
                     self.pedestrian5.p5accelerate(0) #Constant speed
-		    self.pedestrian6.p6accelerate(0) #Constant speed
+                    self.pedestrian6.p6accelerate(0) #Constant speed
                    
                    
                   
