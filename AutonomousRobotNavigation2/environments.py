@@ -133,7 +133,7 @@ class BaseEnv(gym.Env):
         self.pedestrian3.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi), 0.9,-0.9,(np.pi/4)) 
         self.pedestrian4.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
         self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
-	self.pedestrian6.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
+        self.pedestrian6.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
         
  
         limit = self.field_size-self.target_radius
