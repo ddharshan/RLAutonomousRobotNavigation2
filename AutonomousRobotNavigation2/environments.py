@@ -535,7 +535,7 @@ class BaseEnv(gym.Env):
             self.pedestrian2.p2theta,  
             self.pedestrian3.p3theta,  
             self.pedestrian4.p4theta,  
-            self.pedestrian5.p5theta 
+            self.pedestrian5.p5theta,
             self.pedestrian6.p6theta  
          
         ]
