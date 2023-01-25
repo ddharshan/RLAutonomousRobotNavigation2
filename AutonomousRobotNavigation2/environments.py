@@ -100,7 +100,7 @@ class BaseEnv(gym.Env):
         self.pedestrian3 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian4 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian5 = BaseAgent(break_value=break_value, delta_t=delta_t)
-	self.pedestrian6 = BaseAgent(break_value=break_value, delta_t=delta_t)
+        self.pedestrian6 = BaseAgent(break_value=break_value, delta_t=delta_t)
 
 
 
