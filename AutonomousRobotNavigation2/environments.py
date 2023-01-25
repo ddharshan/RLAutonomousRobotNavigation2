@@ -430,7 +430,7 @@ class BaseEnv(gym.Env):
                 done = False
 		
 		
-	elif (self.distance > 0.4) and (0.21 < self.collision6 < 0.35): #social-norm inducing reward for P6       
+        elif (self.distance > 0.4) and (0.21 < self.collision6 < 0.35): #social-norm inducing reward for P6       
             
             if ((0.75*(np.pi)) < abs(self.thetaP6n - self.thetaRn) < np.pi):  #Passing of P6
                 reward = self.get_reward(last_distance, False, True)
@@ -530,13 +530,13 @@ class BaseEnv(gym.Env):
 	    self.thetaP5n,
 	    self.thetaP6n,
             self.thetaRn, 
-            self.agent.theta, #ask sir
-            self.pedestrian1.p1theta, #ask sir
-            self.pedestrian2.p2theta, #ask sir
-            self.pedestrian3.p3theta, #ask sir
-            self.pedestrian4.p4theta, #ask sir
-            self.pedestrian5.p5theta #ask sir
-	    self.pedestrian6.p6theta #ask sir
+            self.agent.theta, 
+            self.pedestrian1.p1theta,  
+            self.pedestrian2.p2theta,  
+            self.pedestrian3.p3theta,  
+            self.pedestrian4.p4theta,  
+            self.pedestrian5.p5theta 
+            self.pedestrian6.p6theta  
          
         ]
         return state
