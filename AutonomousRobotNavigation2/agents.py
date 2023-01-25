@@ -40,6 +40,12 @@ class BaseAgent:
         self.p5y = None
         self.p5theta = None  # direction of pedestrian 5
         self.p5speed = None
+        
+        #pedestrian 6
+        self.p6x = None
+        self.p6y = None
+        self.p6theta = None  # direction of pedestrian 6
+        self.p6speed = None
 
     def accelerate(self, value: float) -> None:
         raise NotImplementedError
@@ -88,7 +94,15 @@ class BaseAgent:
     def p5turn(self, value: float) -> None:
         raise NotImplementedError
         
-    def reset(self, x: float, y: float, direction: float, p1x: float, p1y: float, p1direction: float, p2x: float, p2y: float, p2direction: float, p3x: float, p3y: float, p3direction: float, p4x: float, p4y: float, p4direction: float,  p5x: float, p5y: float, p5direction: float) -> None:
+        
+#pedestrian 6
+    def p6accelerate(self, value: float) -> None:
+        raise NotImplementedError
+
+    def p6turn(self, value: float) -> None:
+        raise NotImplementedError
+        
+    def reset(self, x: float, y: float, direction: float, p1x: float, p1y: float, p1direction: float, p2x: float, p2y: float, p2direction: float, p3x: float, p3y: float, p3direction: float, p4x: float, p4y: float, p4direction: float,  p5x: float, p5y: float, p5direction: float,  p6x: float, p6y: float, p6direction: float) -> None:
         self.x = x
         self.y = y
         self.speed = 0
@@ -122,6 +136,12 @@ class BaseAgent:
         self.p5speed = 0
         self.p5theta = p5direction
         
+#pedestrian 6
+        self.p6x = p6x
+        self.p6y = p6y
+        self.p6speed = 0
+        self.p6theta = p6direction
+        
     def _step(self) -> None:
         angle = self.theta if self.phi is None else self.phi
         self.x += self.delta_t * self.speed * np.cos(angle)
@@ -146,6 +166,11 @@ class BaseAgent:
         p5angle = self.p5theta 
         self.p5x += self.delta_t * self.p5speed * np.cos(p5angle)
         self.p5y += self.delta_t * self.p5speed * np.sin(p5angle)
+#pedestrian 6
+        p6angle = self.p6theta 
+        self.p6x += self.delta_t * self.p6speed * np.cos(p6angle)
+        self.p6y += self.delta_t * self.p6speed * np.sin(p6angle)
+
 
 
 
@@ -219,6 +244,15 @@ class MovingAgent(BaseAgent):
     def p5turn(self, value: float) -> None:
         self.p5theta = (self.p5theta + value) % (2 * np.pi)
         self._step()
- 
+
+#Pedestrian 6
+
+    def p6accelerate(self, value: float) -> None:
+        self.p6speed += value
+        self._step()
+
+    def p6turn(self, value: float) -> None:
+        self.p6theta = (self.p6theta + value) % (2 * np.pi)
+        self._step()
 
  
