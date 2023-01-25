@@ -147,7 +147,7 @@ class BaseEnv(gym.Env):
         self.pedestrian3.p3accelerate(1.2) #Constant speed or initial speed
         self.pedestrian4.p4accelerate(1.2) #Constant speed or initial speed
         self.pedestrian5.p5accelerate(1.2) #Constant speed or initial speed
-	self.pedestrian6.p6accelerate(1.2) #Constant speed or initial speed
+        self.pedestrian6.p6accelerate(1.2) #Constant speed or initial speed
       
        
         
