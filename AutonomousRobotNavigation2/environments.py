@@ -736,7 +736,7 @@ class BaseEnv(gym.Env):
         pedestrian3_radius = 0.0175
         pedestrian4_radius = 0.0175
         pedestrian5_radius = 0.0175
-	pedestrian6_radius = 0.0175
+        pedestrian6_radius = 0.0175
 
 
 
