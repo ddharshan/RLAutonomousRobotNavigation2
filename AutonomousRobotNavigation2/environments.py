@@ -100,6 +100,7 @@ class BaseEnv(gym.Env):
         self.pedestrian3 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian4 = BaseAgent(break_value=break_value, delta_t=delta_t)
         self.pedestrian5 = BaseAgent(break_value=break_value, delta_t=delta_t)
+	self.pedestrian6 = BaseAgent(break_value=break_value, delta_t=delta_t)
 
 
 
@@ -108,7 +109,7 @@ class BaseEnv(gym.Env):
 
         self.action_space = spaces.Tuple((spaces.Discrete(3),
                                           spaces.Box(parameters_min, parameters_max)))
-        self.observation_space = spaces.Box(np.ones(52), -np.ones(52))   # HAVE TO CHANGE--------------------------------- 
+        self.observation_space = spaces.Box(np.ones(60), -np.ones(60))   # HAVE TO CHANGE--------------------------------- 
 
     def seed(self, seed: Optional[int] = None) -> list:
         self.np_random, seed = seeding.np_random(seed)  # noqa
@@ -122,16 +123,17 @@ class BaseEnv(gym.Env):
         #self.agent.reset(0,0,0,0,0.8, (np.pi)/2,0, -0.21,1.5*(np.pi))#tiallizing the robot
         
         #Randomizing the initial position of pedestrian1 which will ensure the dynmaic environment(Rather than fixing the starting position of pedestrian, randomizing will be more effective. Because the dynamic is high)   
-        low = [-0.7, -0.7, 0,0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0,0,0,0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
-        high = [0.7, 0.7,0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0,0,0,0,0]  
+        low = [-0.7, -0.7, 0,0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0,0,0,0,0,0,0]   #limiting the starting of randomization of pedestrian 1 greater than -0.3 in x plane which will ensure not collide with the robot at starting 
+        high = [0.7, 0.7,0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0,0,0,0,0,0,0,0]  
         
         #self.pedestrian1.reset(*self.np_random.uniform(low, high)) #randomizing the starting of pedestrian 1
         self.agent.reset(*self.np_random.uniform(low, high))  #Initiallizing the robot
-        self.pedestrian1.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))  #randomizing the starting of pedestrian 1
-        self.pedestrian2.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))    #randomizing the starting of pedestrian 2
-        self.pedestrian3.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi)) 
-        self.pedestrian4.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
-        self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi))
+        self.pedestrian1.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))  #randomizing the starting of pedestrian 1
+        self.pedestrian2.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi), 0.9, -0.9,(np.pi/4))    #randomizing the starting of pedestrian 2
+        self.pedestrian3.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi), 0.9,-0.9,(np.pi/4)) 
+        self.pedestrian4.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
+        self.pedestrian5.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
+	self.pedestrian6.reset(0,0,0,-1,0,0 ,0, -1 ,(np.pi)/2, 0.5, 1, 1.5*(np.pi), -0.5,-1, (np.pi/2),-0.25,1, 1.5*(np.pi),0.9,-0.9,(np.pi/4))
         
  
         limit = self.field_size-self.target_radius
@@ -145,6 +147,7 @@ class BaseEnv(gym.Env):
         self.pedestrian3.p3accelerate(1.2) #Constant speed or initial speed
         self.pedestrian4.p4accelerate(1.2) #Constant speed or initial speed
         self.pedestrian5.p5accelerate(1.2) #Constant speed or initial speed
+	self.pedestrian6.p6accelerate(1.2) #Constant speed or initial speed
       
        
         
@@ -180,6 +183,10 @@ class BaseEnv(gym.Env):
             elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                     self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian5.p5accelerate(0) #Constant speed
+			
+	    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+                    self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
+                    self.pedestrian6.p6accelerate(0) #Constant speed
                    
             else:
                     self.pedestrian1.p1accelerate(0) #Constant speed 
@@ -187,6 +194,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian3.p3accelerate(0) #Constant speed
                     self.pedestrian4.p4accelerate(0) #Constant speed
                     self.pedestrian5.p5accelerate(0) #Constant speed
+	            self.pedestrian6.p6accelerate(0) #Constant speed
                    
                    
                   
@@ -216,6 +224,10 @@ class BaseEnv(gym.Env):
                     elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                             self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian5.p5accelerate(0) #Constant speed
+			
+		    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+                            self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
+                            self.pedestrian6.p6accelerate(0) #Constant speed
                
                     else:
                             self.pedestrian1.p1accelerate(0) #Constant speed 
@@ -223,6 +235,7 @@ class BaseEnv(gym.Env):
                             self.pedestrian3.p3accelerate(0) #Constant speed 
                             self.pedestrian4.p4accelerate(0) #Constant speed
                             self.pedestrian5.p5accelerate(0) #Constant speed
+			    self.pedestrian6.p6accelerate(0) #Constant speed
                    
                         
             else:
@@ -252,6 +265,10 @@ class BaseEnv(gym.Env):
                     elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                             self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                             self.pedestrian5.p5accelerate(0) #Constant speed
+			
+		    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+                            self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
+                            self.pedestrian6.p6accelerate(0) #Constant speed
                
                
                     else:
@@ -260,6 +277,7 @@ class BaseEnv(gym.Env):
                             self.pedestrian3.p3accelerate(0) #Constant speed
                             self.pedestrian4.p4accelerate(0) #Constant speed
                             self.pedestrian5.p5accelerate(0) #Constant speed
+			    self.pedestrian6.p6accelerate(0) #Constant speed
                            
                            
                     
@@ -286,6 +304,11 @@ class BaseEnv(gym.Env):
             elif self.pedestrian5.p5y <= -1 or self.pedestrian5.p5y >= 1 or self.pedestrian5.p5x <= -1 or self.pedestrian5.p5x >= 1:
                     self.pedestrian5.p5turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
                     self.pedestrian5.p5accelerate(0) #Constant speed
+			
+			
+	    elif self.pedestrian6.p6y <= -1 or self.pedestrian6.p6y >= 1 or self.pedestrian6.p6x <= -1 or self.pedestrian6.p6x >= 1:
+                    self.pedestrian6.p6turn(np.pi) #Turn by 180 degree which will ensure the pedestrian is not out of the environment 
+                    self.pedestrian6.p6accelerate(0) #Constant speed
                
             else:
                     self.pedestrian1.p1accelerate(0) #Constant speed 
@@ -293,6 +316,7 @@ class BaseEnv(gym.Env):
                     self.pedestrian3.p3accelerate(0) #Constant speed
                     self.pedestrian4.p4accelerate(0) #Constant speed
                     self.pedestrian5.p5accelerate(0) #Constant speed
+		    self.pedestrian6.p6accelerate(0) #Constant speed
                    
                    
                   
@@ -308,7 +332,7 @@ class BaseEnv(gym.Env):
             reward = -1
             done = True
             
-        elif self.collision1 <= 0.21 or self.collision2 <= 0.21 or self.collision3 <= 0.21 or self.collision4 <= 0.21 or self.collision5 <= 0.21:  #Collision
+        elif self.collision1 <= 0.21 or self.collision2 <= 0.21 or self.collision3 <= 0.21 or self.collision4 <= 0.21 or self.collision5 <= 0.21 or self.collision6 <= 0.21:  #Collision
             reward = -1 #changed
             done = True #changed
                
@@ -404,6 +428,25 @@ class BaseEnv(gym.Env):
             else:
                 reward = self.get_reward(last_distance) 
                 done = False
+		
+		
+	elif (self.distance > 0.4) and (0.21 < self.collision6 < 0.35): #social-norm inducing reward for P6       
+            
+            if ((0.75*(np.pi)) < abs(self.thetaP6n - self.thetaRn) < np.pi):  #Passing of P6
+                reward = self.get_reward(last_distance, False, True)
+                done = False
+            
+            elif (((np.pi/4) < (self.thetaP6n - self.thetaRn) < 0.75*(np.pi)) and (abs(self.pedestrian6.p6speed) - abs(self.agent.speed) > 0)):  #Crossing of P6
+                reward = self.get_reward(last_distance, False, True)
+                done = False
+            
+            elif ((0 < (self.thetaRn - self.thetaP6n) < (np.pi/4)) and (abs(self.agent.speed) > abs(self.pedestrian6.p6speed))): #overtaking of P6
+                reward = self.get_reward(last_distance, False, True)
+                done = False
+            
+            else:
+                reward = self.get_reward(last_distance) 
+                done = False
         
         
         
@@ -470,6 +513,14 @@ class BaseEnv(gym.Env):
             self.pedestrian5.p5x,
             self.pedestrian5.p5y,
             self.pedestrian5.p5speed,
+		
+	    #for collision 6
+            self.collision6,
+            np.cos(self.pedestrian6.p6theta),
+            np.sin(self.pedestrian6.p6theta),
+            self.pedestrian6.p6x,
+            self.pedestrian6.p6y,
+            self.pedestrian6.p6speed,
             
             #pedestrian norm
             self.thetaP1n,
@@ -477,6 +528,7 @@ class BaseEnv(gym.Env):
             self.thetaP3n,
             self.thetaP4n,
 	    self.thetaP5n,
+	    self.thetaP6n,
             self.thetaRn, 
             self.agent.theta, #ask sir
             self.pedestrian1.p1theta, #ask sir
@@ -484,6 +536,7 @@ class BaseEnv(gym.Env):
             self.pedestrian3.p3theta, #ask sir
             self.pedestrian4.p4theta, #ask sir
             self.pedestrian5.p5theta #ask sir
+	    self.pedestrian6.p6theta #ask sir
          
         ]
         return state
@@ -644,6 +697,33 @@ class BaseEnv(gym.Env):
 #------------------------------------------------------------------
 
 
+#----------------------Define the collision6---------------------
+    @property
+    def collision6(self) -> float:  # Define variables for difinition of collision2
+        return self.get_collision6(self.agent.x, self.agent.y, self.pedestrian6.p6x, self.pedestrian6.p6y)
+    
+    
+    @staticmethod
+    def get_collision6(x19: float, y19: float, x20: float, y20: float) -> float:   #Define the collision
+        return np.sqrt(((x19 - x20) ** 2) + ((y19 - y20) ** 2))
+
+#-------------------Define the thetaP5n for norm to wrapp [-pi, pi]----------------------
+    
+    @property
+    def thetaP6n(self) -> float:  # Define variables for difinition of thetaP5n
+        return self.get_thetaP6n(self.pedestrian6.p6theta)
+    
+    @staticmethod
+    def get_thetaP6n(x21: float) -> float:   #Define the thetaP1n
+        if x21 > np.pi:
+            x21 = -(2*(np.pi)) + x21
+        else:
+            x21
+        return x21
+#------------------------------------------------------------------
+
+
+
     def render(self, mode='human'):
         screen_width = 680
         screen_height = 680
@@ -656,6 +736,7 @@ class BaseEnv(gym.Env):
         pedestrian3_radius = 0.0175
         pedestrian4_radius = 0.0175
         pedestrian5_radius = 0.0175
+	pedestrian6_radius = 0.0175
 
 
 
@@ -993,6 +1074,61 @@ class BaseEnv(gym.Env):
             self.viewer.add_geom(p5arrow)
             
            
+		
+ 	    #pedestrian 6
+            
+            #Head 1
+            pedestrian6 = rendering.make_circle(unit_x * pedestrian6_radius)
+            self.pedestrian6_trans = rendering.Transform(translation=(unit_x * (1 + self.pedestrian6.p6x), unit_y * (1 + self.pedestrian6.p6y)))  # noqa
+            pedestrian6.add_attr(self.pedestrian6_trans)
+            
+            
+            #P6Shoulder - right 
+            p6rshoulder = rendering.make_capsule(8.432,16.66) # (rectangle length, arc diameter)
+            self.p6rshoulder_trans = rendering.Transform(rotation=((self.pedestrian6.p6theta)+(np.pi/2)))  # noqa
+            p6rshoulder.add_attr(self.p6rshoulder_trans)
+            p6rshoulder.add_attr(self.pedestrian6_trans)
+            p6rshoulder.set_color(0.5,0.5,0.5)
+            self.viewer.add_geom(p6rshoulder)
+            
+            #P6Shoulder - left 
+            p6lshoulder = rendering.make_capsule(-8.432,16.66) # (rectangle length, arc diameter)
+            self.p6lshoulder_trans = rendering.Transform(rotation=((self.pedestrian6.p6theta)+(np.pi/2))) # noqa
+            p6lshoulder.add_attr(self.p6lshoulder_trans)
+            p6lshoulder.add_attr(self.pedestrian6_trans)
+            p6lshoulder.set_color(0.5,0.5,0.5)
+            self.viewer.add_geom(p6lshoulder)
+            
+            #Head -2
+            pedestrian6.set_color(0, 0, 0)
+            self.viewer.add_geom(pedestrian6)
+            
+            
+            
+            #P6arrow - 1
+            a6, b6, c6 = 0.1705 * unit_x, 0.036 * unit_y, 0.108146 * unit_x
+            p6arrow = rendering.FilledPolygon([(a6, 0), (c6, b6), (c6, -b6)])
+            self.p6arrow_trans = rendering.Transform(rotation=self.pedestrian6.p6theta)  # noqa 
+            p6arrow.add_attr(self.p6arrow_trans)
+            p6arrow.add_attr(self.pedestrian6_trans)
+            
+            
+	
+            #P6Stride 
+            x6, y6, u6 = 0.0245 * unit_x, 0.036 * unit_y, 0.1705 * unit_x
+            p6stride = rendering.FilledPolygon([(x6, y6), (x6, -y6), (u6, -y6), (u6, y6)])
+            self.p6stride_trans = rendering.Transform(rotation=self.pedestrian6.p6theta)  # noqa 
+            p6stride.add_attr(self.p6stride_trans)
+            p6stride.add_attr(self.pedestrian6_trans)
+            p6stride.set_color(0.39, 0.58, 0.93)
+            self.viewer.add_geom(p6stride)
+        
+        
+        
+            #P6arrow - 2
+            p6arrow.set_color(0, 0, 0)
+            self.viewer.add_geom(p6arrow)
+		
         
         
        
@@ -1048,6 +1184,17 @@ class BaseEnv(gym.Env):
         #shoulder
         self.p5rshoulder_trans.set_rotation((self.pedestrian5.p5theta)+(np.pi/2))
         self.p5lshoulder_trans.set_rotation((self.pedestrian5.p5theta)+(np.pi/2))
+	
+	
+	#pedestrian 6
+        self.p6arrow_trans.set_rotation(self.pedestrian6.p6theta)
+        self.pedestrian6_trans.set_translation(unit_x * (1 + self.pedestrian6.p6x), unit_y * (1 + self.pedestrian6.p6y))
+        #stridelength
+        self.p6stride_trans.set_rotation(self.pedestrian6.p6theta)
+        #shoulder
+        self.p6rshoulder_trans.set_rotation((self.pedestrian6.p6theta)+(np.pi/2))
+        self.p6lshoulder_trans.set_rotation((self.pedestrian6.p6theta)+(np.pi/2))
+        
         
         
        
@@ -1111,4 +1258,8 @@ class MovingEnv(BaseEnv):
             delta_t=delta_t,
         )
         
+	self.pedestrian6 = MovingAgent(
+            break_value=break_value,
+            delta_t=delta_t,
+        )
  
