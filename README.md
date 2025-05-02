@@ -1,4 +1,4 @@
-This project work is related to my MSc Thesis Research work.
+This project work is related to my MSc Thesis Research.
 Basically, I developed an OpenAI Gym based Robot and Pedestrian models, and the goal of the robot to reach the destination without colliding with pedestrians (Pedestrians' Co-ordinates are changing). 
 The model trained using Deep Reinforcement Learning (H-PPO algorithm).
 The Repository (RLAutonomousNavigation2 - https://github.com/ddharshan/RLAutonomousRobotNavigation2/tree/main) is an environment which includes the robot, goal spot and the pedestrians models.
