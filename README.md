@@ -20,6 +20,6 @@ Original implementation and training by the author.
 
 If you use this work in research or projects, please cite or reference this repository.
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef5bb374-6fe5-4a8d-9038-ce1740a0eba3" />
+
 
 
