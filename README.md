@@ -1,3 +1,9 @@
+## Robot Navigation Algorithm in Pedestrian-rich Environment
+
+<img width="1073" height="529" alt="image" src="https://github.com/user-attachments/assets/9df3b17c-7df3-47df-8e6c-3e8e22480692" />
+
+## Description
+
 This project work is related to my MSc Thesis Research.
 Basically, I developed an OpenAI Gym based Robot and Pedestrian models, and the goal of the robot to reach the destination without colliding with pedestrians (Pedestrians' Co-ordinates are changing). 
 The model trained using Deep Reinforcement Learning (H-PPO algorithm).
@@ -16,10 +22,19 @@ MSc in Industrial Automation
 Original implementation and training by the author.
 
 
-## Citation
 
-If you use this work in research or projects, please cite or reference this repository.
+## Citing
 
+If you use this work in research, academic projects, or publications, please cite:
 
-
+### BibTeX
+```bibtex
+@misc{Ddharshan_RLAutonomousRobotNavigation2,
+  author       = {Ddharshan},
+  title        = {RLAutonomousRobotNavigation2: Reinforcement Learning-Based Autonomous Robot Navigation},
+  year         = {2022},
+  publisher    = {GitHub},
+  journal      = {GitHub repository},
+  url          = {https://github.com/ddharshan/RLAutonomousRobotNavigation2}
+}
 
