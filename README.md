@@ -7,3 +7,19 @@ Pls read my work to get some idea about this repository project https://papers.s
 
 
 Pls feel free to reach me, if u get any doubts - ddharshan126@gmail.com
+
+
+## Author
+
+Developed by Dhivyadharshan Seetharaman  
+MSc in Industrial Automation   
+Original implementation and training by the author.
+
+
+## Citation
+
+If you use this work in research or projects, please cite or reference this repository.
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef5bb374-6fe5-4a8d-9038-ce1740a0eba3" />
+
+
