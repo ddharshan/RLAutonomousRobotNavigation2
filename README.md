@@ -20,7 +20,7 @@ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5178305
 
 </div>
 
-Pls feel free to reach me, if u get any doubts - ddharshan126@gmail.com
+For any questions or inquiries regarding this project, please feel free to contact me at ddharshan126@gmail.com.
 
 
 ## Author
