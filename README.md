@@ -4,6 +4,7 @@
 
 ## Description
 
+<div align="justify">
 This project is part of my MSc thesis research. I developed an OpenAI Gym–based simulation environment consisting of a robot, dynamic pedestrians, and a goal location. The objective of the robot is to reach the destination without colliding with pedestrians whose coordinates change over time. The model is trained using Deep Reinforcement Learning with a Hybrid Proximal Policy Optimization (H-PPO) algorithm.
 
 The repository RLAutonomousRobotNavigation2
@@ -16,6 +17,8 @@ contains the Deep Neural Network architecture used to train the robot within thi
 
 For a detailed explanation of the methodology and results, please refer to my thesis publication:
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5178305
+
+</div>
 
 Pls feel free to reach me, if u get any doubts - ddharshan126@gmail.com
 
